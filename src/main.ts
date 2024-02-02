@@ -32,6 +32,10 @@ async function bootstrap() {
   // PORT settings
   const configService = app.get(ConfigService);
   const port = configService.get('port');
+
+  // Enable cors globally
+  app.enableCors();
+
   await app.listen(port);
 }
 
