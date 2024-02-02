@@ -10,9 +10,6 @@ RUN npm install && npm install glob rimraf
 # Copy the rest of the source code
 COPY . .
 
-# Expose the port and execute the application
-EXPOSE 3000
-
 # Build the app
 RUN npm run build
 
