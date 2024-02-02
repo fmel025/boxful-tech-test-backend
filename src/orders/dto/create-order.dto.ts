@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import {
   IsArray,
+  IsDateString,
   IsEmail,
   IsNotEmpty,
   IsString,
@@ -15,7 +16,10 @@ export class CreateOrderDto {
   @IsString()
   collectingAddress: string;
 
-  @ApiProperty({})
+  @ApiProperty({
+    example: '2024-02-02T18:44:22.930Z',
+  })
+  @IsDateString()
   date: Date;
 
   @ApiProperty({})
@@ -28,7 +32,9 @@ export class CreateOrderDto {
   @IsString()
   lastnames: string;
 
-  @ApiProperty({})
+  @ApiProperty({
+    example: 'johndoe@example.com',
+  })
   @IsEmail()
   email: string;
 

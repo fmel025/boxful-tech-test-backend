@@ -4,6 +4,7 @@ import { ApiProperty } from '@nestjs/swagger';
 export class CreatePackageDto {
   @ApiProperty({
     type: 'number',
+    example: 3,
   })
   @IsNumber()
   @IsPositive()
@@ -11,6 +12,7 @@ export class CreatePackageDto {
 
   @ApiProperty({
     type: 'number',
+    example: 4,
   })
   @IsNumber()
   @IsPositive()
@@ -18,6 +20,7 @@ export class CreatePackageDto {
 
   @ApiProperty({
     type: 'number',
+    example: 5,
   })
   @IsNumber()
   @IsPositive()
@@ -25,12 +28,13 @@ export class CreatePackageDto {
 
   @ApiProperty({
     type: 'number',
+    example: 20,
   })
   @IsNumber()
   @IsPositive()
   poundsWeight: number;
 
-  @ApiProperty({ type: 'string' })
+  @ApiProperty({ type: 'string', example: 'Content example' })
   @IsString()
   @IsNotEmpty()
   content: string;
