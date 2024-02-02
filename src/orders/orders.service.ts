@@ -10,11 +10,11 @@ export class OrdersService {
     @InjectModel(Order.name) private readonly orderModel: Model<OrderDocument>,
   ) {}
 
-  create(createOrderDto: CreateOrderDto) {
-    return this.orderModel.create(createOrderDto);
+  async create(createOrderDto: CreateOrderDto): Promise<Order> {
+    return await this.orderModel.create(createOrderDto);
   }
 
-  async findAll() {
-    return this.orderModel.find({});
+  async findAll(): Promise<Order[]> {
+    return await this.orderModel.find({});
   }
 }
