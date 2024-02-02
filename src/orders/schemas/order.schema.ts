@@ -15,6 +15,30 @@ export class Order {
   @Prop()
   names: string;
 
+  @Prop()
+  lastnames: string;
+
+  @Prop()
+  email: string;
+
+  @Prop()
+  phone: string;
+
+  @Prop()
+  recipientAddress: string;
+
+  @Prop()
+  state: string;
+
+  @Prop()
+  city: string;
+
+  @Prop()
+  reference: string;
+
+  @Prop()
+  indications: string;
+
   @Prop({ type: [PackageSchema] })
   packages: Package[];
 }
