@@ -15,7 +15,7 @@ export class OrdersController {
   constructor(private readonly ordersService: OrdersService) {}
 
   @ApiOperation({
-    description: 'It creates a new order',
+    description: 'This endpoint creates a new order',
     summary: 'Create a new order',
   })
   @ApiCreatedResponse({
@@ -30,7 +30,7 @@ export class OrdersController {
   }
 
   @ApiOperation({
-    description: 'It retrieves all the orders',
+    description: 'This endpoint retrieves all the orders',
     summary: 'Get all the orders',
   })
   @ApiOkResponse({
