@@ -26,6 +26,8 @@ export class OrdersController {
   })
   @Post()
   create(@Body() createOrderDto: CreateOrderDto) {
+    // Boxful API requirement
+    console.log(createOrderDto);
     return this.ordersService.create(createOrderDto);
   }
 
