@@ -21,8 +21,8 @@ export class StatesController {
     description: 'All states have been found',
   })
   @Get()
-  findAll() {
-    return this.statesService.findAll();
+  async findAll() {
+    return await this.statesService.findAll();
   }
 
   @ApiOperation({
@@ -38,7 +38,7 @@ export class StatesController {
     type: String,
   })
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.statesService.findOne(id);
+  async findOne(@Param('id') id: string) {
+    return await this.statesService.findOne(id);
   }
 }
