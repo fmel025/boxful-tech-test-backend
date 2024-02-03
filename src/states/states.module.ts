@@ -15,5 +15,6 @@ import { State, StateSchema } from './schemas/state.schema';
   ],
   controllers: [StatesController],
   providers: [StatesService],
+  exports: [MongooseModule],
 })
 export class StatesModule {}
