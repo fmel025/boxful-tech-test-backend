@@ -1,5 +1,5 @@
 import { Controller, Get, HttpCode } from '@nestjs/common';
-import { SeedsService } from './seeds.service';
+import { SeedsService } from '../services/seeds.service';
 import { ApiTags, ApiOperation, ApiCreatedResponse } from '@nestjs/swagger';
 
 @Controller('seeds')
