@@ -13,6 +13,7 @@
     "paths": {
       "@Configuration/*": ["src/config/*"],
       "@States/*": ["src/states/*"],
+      "@Common/*": ["src/common/*"],
     },
     "incremental": true,
     "skipLibCheck": true,
