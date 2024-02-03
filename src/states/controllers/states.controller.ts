@@ -1,5 +1,5 @@
 import { Controller, Get, Param } from '@nestjs/common';
-import { StatesService } from './states.service';
+import { StatesService } from '../services/states.service';
 import {
   ApiTags,
   ApiOperation,

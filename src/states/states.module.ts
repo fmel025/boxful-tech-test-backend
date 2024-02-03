@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { StatesService } from './states.service';
-import { StatesController } from './states.controller';
+import { StatesService } from './services/states.service';
+import { StatesController } from './controllers/states.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { State, StateSchema } from './schemas/state.schema';
 
