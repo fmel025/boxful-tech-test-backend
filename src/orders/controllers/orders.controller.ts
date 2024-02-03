@@ -25,10 +25,10 @@ export class OrdersController {
     description: 'Invalid body data',
   })
   @Post()
-  create(@Body() createOrderDto: CreateOrderDto) {
+  async create(@Body() createOrderDto: CreateOrderDto) {
     // Boxful API requirement
     console.log(createOrderDto);
-    return this.ordersService.create(createOrderDto);
+    return await this.ordersService.create(createOrderDto);
   }
 
   @ApiOperation({
@@ -39,7 +39,7 @@ export class OrdersController {
     description: 'Orders retrieved successfully',
   })
   @Get()
-  findAll() {
-    return this.ordersService.findAll();
+  async findAll() {
+    return await this.ordersService.findAll();
   }
 }
