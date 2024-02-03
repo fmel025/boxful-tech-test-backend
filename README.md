@@ -1,73 +1,115 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Technical Test Backend - Boxful
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+---
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Overview
 
-## Description
+This API is designed to facilitate the creation and management of delivery orders for products. It allows users to submit input data such as name, collection address, destiny address, the products and other relevant information to save an order.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+---
 
+## Technologies
+
+- <b>Language:</b> TypeScript
+- <b>Framework:</b> NestJS
+- <b>ODM:</b> Mongoose
+- <b>Database:</b> MongoDB
+- <b>Containers:</b> Docker
+- <b>Documentation:</b> Swagger
+
+--- 
+## Features
+
+- Create and Read operations for Order entity.
+- Read operations for State entity.
+- Database seeder for State entity.
+
+---
+## Prerequisites
+
+- NodeJS (version 16.x or above).
+- MongoDB or a MongoAtlas connection (not optional if you don't use Docker).
+- Docker (optional if you want to dockerize the API and database).
+- A package manager like npm.
+
+---
 ## Installation
 
+1. Clone the repository:
+```
+git clone https://github.com/fmel025/boxful-tech-test-backend.git
+```
+2. Navigate to the project directory:
+```
+cd boxful-tech-test-backend
+```
+3. Install dependencies:
+```
+npm install
+``` 
+
+---
+## Running the application
+
+1. Create a .env file and add the environment variables that are defined in the .env.example file, set their values and you can run the application:
+
+<b>Note:</b> You should consider setting the <b>API_PORT</b> environment variable different to 3000 or the one defined in your frontend application if you run it locally.
+
+### Using Docker
+
+2. For this step you must have Docker installed.
+3. Run the command:
 ```bash
-$ npm install
+# For a development environment
+npm run start:docker:dev
+
+# For a production environment
+npm run start:docker:prod
 ```
 
-## Running the app
-
+<b>Note:</b> If you want to stop all your containers completely use the following command:
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+docker-compose down
 ```
 
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+<b>Note:</b> If you use Docker, your database host in the .env file must coincide with the <b>mongo</b> service name inside the DB_URI, in this case its name is mongo, like the following example:
+```
+DB_URI=mongodb://youruser:yourpassword@mongo:27017/db?authSource=admin
 ```
 
-## Support
+### Run locally
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+2. Execute the following command:
+```bash
+# For development environment
+npm run start
 
-## Stay in touch
+# For development and watch mode:
+npm run start:dev
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+# For a production environment
+npm run build
+npm run start:prod
+```
 
-## License
+---
+## After installation and running
 
-Nest is [MIT licensed](LICENSE).
+Before sending the API to production or development, you should use the <b>States Seeder</b> to generate a list of states that you want to use in your frontend app.
+
+For doing this, in your navigator, or in your API documentation, you should execute the following endpoint:
+
+```bash
+GET localhost:{your_api_port}/api/v1/seeds/states
+```
+
+After that you can check using the API endpoints that the states have been created inside the database.
+
+---
+## API Documentation
+
+To access the API documentation, navigate to {host}:{port}/docs in your browser. This will provide you with a detailed overview of all available endpoints, required parameters, and expected responses.
+
+Or if you are not using Docker you can find the documentation here to test the API: [Swagger Documentation](localhost:8080/docs).
+
+<b>NOTE:</b> Remember to access only when the server is running.
