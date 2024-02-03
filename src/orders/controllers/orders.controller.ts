@@ -32,7 +32,7 @@ export class OrdersController {
   }
 
   @ApiOperation({
-    description: 'This endpoint retrieves all the orders',
+    description: 'This endpoint retrieves all the orders. Used for test purposes',
     summary: 'Get all the orders',
   })
   @ApiOkResponse({
