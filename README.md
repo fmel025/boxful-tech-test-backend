@@ -53,6 +53,8 @@ npm install
 
 1. Create a .env file and add the environment variables that are defined in the .env.example file, set their values and you can run the application:
 
+<b>Note:</b> You should consider setting the <b>API_PORT</b> environment variable different to 3000 or the one defined in your frontend application if you run it locally.
+
 ### Using Docker
 
 2. For this step you must have Docker installed.
@@ -70,7 +72,7 @@ npm run start:docker:prod
 docker-compose down
 ```
 
-<b>Note:</b> If you use Docker, your host in the .env file must coincide with the <b>mongo</b> service name, in this case its name is mongo, like the following example:
+<b>Note:</b> If you use Docker, your database host in the .env file must coincide with the <b>mongo</b> service name inside the DB_URI, in this case its name is mongo, like the following example:
 ```
 DB_URI=mongodb://youruser:yourpassword@mongo:27017/db?authSource=admin
 ```
@@ -89,6 +91,19 @@ npm run start:dev
 npm run build
 npm run start:prod
 ```
+
+---
+## After installation and running
+
+Before sending the API to production or development, you should use the <b>States Seeder</b> to generate a list of states that you want to use in your frontend app.
+
+For doing this, in your navigator, or in your API documentation, you should execute the following endpoint:
+
+```bash
+GET localhost:{your_api_port}/api/v1/seeds/states
+```
+
+After that you can check using the API endpoints that the states have been created inside the database.
 
 ---
 ## API Documentation
