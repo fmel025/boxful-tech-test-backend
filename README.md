@@ -110,6 +110,6 @@ After that you can check using the API endpoints that the states have been creat
 
 To access the API documentation, navigate to {host}:{port}/docs in your browser. This will provide you with a detailed overview of all available endpoints, required parameters, and expected responses.
 
-Or if you are not using Docker you can find the documentation here to test the API: [Swagger Documentation](localhost:8080/docs).
+Or if you are not using Docker you can find the documentation here to test the API: [Swagger Documentation](http://localhost:8080/docs).
 
 <b>NOTE:</b> Remember to access only when the server is running.
