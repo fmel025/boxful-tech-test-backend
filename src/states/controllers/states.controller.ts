@@ -1,10 +1,9 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 import { StatesService } from '../services/states.service';
 import {
   ApiTags,
   ApiOperation,
   ApiOkResponse,
-  ApiParam,
 } from '@nestjs/swagger';
 
 @ApiTags('States')
@@ -23,22 +22,5 @@ export class StatesController {
   @Get()
   async findAll() {
     return await this.statesService.findAll();
-  }
-
-  @ApiOperation({
-    description:
-      'This route gets a single state with its cities and collection points',
-    summary: 'Get state by id',
-  })
-  @ApiOkResponse({
-    description: 'State has been found successfully',
-  })
-  @ApiParam({
-    name: 'id',
-    type: String,
-  })
-  @Get(':id')
-  async findOne(@Param('id') id: string) {
-    return await this.statesService.findOne(id);
   }
 }

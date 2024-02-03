@@ -12,8 +12,4 @@ export class StatesService {
   async findAll(): Promise<State[]> {
     return await this.stateModel.find({});
   }
-
-  async findOne(id: string): Promise<State> {
-    return await this.stateModel.findById(id);
-  }
 }
