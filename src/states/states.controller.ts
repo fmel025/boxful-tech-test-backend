@@ -3,8 +3,6 @@ import { StatesService } from './states.service';
 import {
   ApiTags,
   ApiOperation,
-  ApiCreatedResponse,
-  ApiBadRequestResponse,
   ApiOkResponse,
   ApiParam,
 } from '@nestjs/swagger';
